@@ -21,7 +21,6 @@ eg using the `az` cli tool:
 
 az login
 az account set --subscription=[ YOUR SUBSCRIPTIION ID ]
-az ad sp create-for-rbac --name AksServicePrinciple
 
 ```
 
