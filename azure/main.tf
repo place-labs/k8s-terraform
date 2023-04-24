@@ -1,11 +1,3 @@
-provider "azurerm" {
-  version = "~> 2.92.0"
-  features {}
-  #skip_provider_registration = true
-}
-
-provider "random"{ version = "~> 2.3.0"}
-
 resource "random_id" "unique" {
   byte_length = 4
 }
@@ -23,13 +15,12 @@ resource "azurerm_kubernetes_cluster" "placeos" {
         vm_size         = "Standard_DS11_v2"
     }
 
-    service_principal {
-        client_id     = var.aks_sp_app_id
-        client_secret = var.aks_sp_app_pw
+    identity {
+      type = "SystemAssigned"
     }
 
     network_profile {
-      load_balancer_sku = "Standard"
+      load_balancer_sku = "standard"
       network_plugin = "kubenet"
       network_policy = "calico"
     }
