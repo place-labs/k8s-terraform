@@ -4,7 +4,7 @@ Deploy a minimal AKS cluster for PoCs and testing PlaceOS
 
 ## Prerequisites
 
-Terraform version 1.4.5
+Terraform version 1.10.4
 
 
 
@@ -27,10 +27,15 @@ az account set --subscription=[ YOUR SUBSCRIPTIION ID ]
 
 Set the Resource Group Name that AKS will be deployed to in the terraform.tfvars file: `resource_group_name=[RESOURCE GROUP NAME]`
 
+Set the Subscription ID that the resource group is in in the terraform.tfvars file: `subscription_id=[SUBSCRIPTION ID]`
+
 Set the Environment variable to define VM size and Tag for the cluster in the terraform.tfvars file, eg: `environment="Production"`
     - "Development" by default
     - "Production" will deploy suitable prod VMs
     - Anything else will deploy suitable dev VMs
+
+Replace the cluster name in the main.tf file eg: `name = aks-placeos-CLUSTER-ENVIRONMENT`
+    - if not a random string will be used
 
 Provision the infrastructure:
 
