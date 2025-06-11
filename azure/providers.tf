@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     azurerm = {
-      version = "~> 3.44.1"
+      version = "~> 4.27.0"
     }
     random = {
       version = "~> 2.3.0"
@@ -11,6 +11,7 @@ terraform {
 
 provider "azurerm" {
   features {}
+  subscription_id = var.subscription_id
   #skip_provider_registration = true
 }
 

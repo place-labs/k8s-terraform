@@ -11,3 +11,7 @@ variable dns_prefix {
 variable environment {
 
 }
+
+variable subscription_id {
+
+}
